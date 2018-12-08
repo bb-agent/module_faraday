@@ -44,7 +44,7 @@ class WebServiceExtended extends WebService {
 		$exec = "python faraday-client.py -s $mod_faraday_server -p $mod_faraday_port -f createHostAndInterface -d '$data'";
 		exec_blackbulb($exec);
 		
-		$output = ["date" => date('Y-m-d H:i:s'), "ip" => $value[0], "mac" => $value[1], "host" => $value[2], "vuln" => "FruityWiFi", "severity" => $value[3]];
+		$output = ["date" => date('Y-m-d H:i:s'), "ip" => $value[0], "mac" => $value[1], "host" => $value[2], "vuln" => "BlackBlulb", "severity" => $value[3]];
 		//echo json_encode($exec);
 		echo json_encode($output);
 		

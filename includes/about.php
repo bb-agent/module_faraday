@@ -18,5 +18,5 @@
 <br>
 <b>Port</b>: Faraday server port
 <br>
-<b>Severity</b>: Severity assigned to the vulnerability when a new client connects to FruityWiFi.
+<b>Severity</b>: Severity assigned to the vulnerability when a new client connects to BlackBlulb.
 

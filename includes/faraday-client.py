@@ -102,11 +102,11 @@ def createHostAndInterface(api, data):
     NAME = value[2].strip()
     SEVERITY = value[3].strip()
     
-    #save_json(IP, MACADDRESS, NAME, SEVERITY, "FruityWiFi")
-    save_log(IP, MACADDRESS, NAME, SEVERITY, "FruityWiFi")
+    #save_json(IP, MACADDRESS, NAME, SEVERITY, "BlackBlulb")
+    save_log(IP, MACADDRESS, NAME, SEVERITY, "BlackBlulb")
     
     desc = "Client ip: " + IP + \
-        " has been connected to FruityWiFi\n"
+        " has been connected to BlackBlulb\n"
     desc += "More information:"
     desc += "\nname: " + NAME
     
@@ -130,7 +130,7 @@ def createHostAndInterface(api, data):
     
     v_id = api.createAndAddVulnToHost(
                 h_id,
-                "FruityWiFi",
+                "BlackBlulb",
                 desc,
                 "http://www.blackbulb.com/",
                 SEVERITY,
@@ -147,7 +147,7 @@ def createAndAddVulnToHost(api, data):
     print IP, NAME, VULN
     
     desc = "Client ip: " + IP + \
-        " has been connected to FruityWiFi\n"
+        " has been connected to BlackBlulb\n"
     desc += "More information:"
     desc += "\nvuln: " + VULN
     
