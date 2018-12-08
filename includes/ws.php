@@ -30,7 +30,7 @@ class WebServiceExtended extends WebService {
 		//$output = ["date" => date('Y-m-d H:i:s'), "ip" => $value[0], "macaddress" => $value[1], "hostname" => $value[2]];
 		
 		$exec = "echo '$data' >> $mod_logs";
-		//exec_fruitywifi($exec);
+		//exec_blackbulb($exec);
 		
 	}
 	
@@ -42,7 +42,7 @@ class WebServiceExtended extends WebService {
 		
 		$value = explode("|", $data);
 		$exec = "python faraday-client.py -s $mod_faraday_server -p $mod_faraday_port -f createHostAndInterface -d '$data'";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 		
 		$output = ["date" => date('Y-m-d H:i:s'), "ip" => $value[0], "mac" => $value[1], "host" => $value[2], "vuln" => "FruityWiFi", "severity" => $value[3]];
 		//echo json_encode($exec);

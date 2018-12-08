@@ -45,12 +45,12 @@ function killRegex($regex){
 	
 	if (count($output) > 0) {
 		$exec = "kill " . $output[0];
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 	}	
 }
 
-//$script_path = "/usr/share/fruitywifi/conf/dnsmasq-dhcp-script.sh";
-$script_path = "/usr/share/fruitywifi/www/modules/ap/includes/dnsmasq-dhcp-script.sh";
+//$script_path = "/usr/share/blackbulb/conf/dnsmasq-dhcp-script.sh";
+$script_path = "/usr/share/blackbulb/www/modules/ap/includes/dnsmasq-dhcp-script.sh";
 
 if($service == "faraday") {
     
@@ -59,22 +59,22 @@ if($service == "faraday") {
         // INCLUDE rc.local
         $line_search = "faraday-client.py";
         
-		$line_add = "python /usr/share/FruityWifi/www/modules/faraday/includes/faraday-client.py -s \\\"$mod_faraday_server\\\" -p $mod_faraday_port -f createHostAndInterface -d \\\"\\\$3|\\\$2|\\\$4|$mod_faraday_severity\\\"";
-		//$line_add = "python /usr/share/FruityWifi/www/modules/faraday/includes/faraday-client.py";
+		$line_add = "python /usr/share/BlackBulb/www/modules/faraday/includes/faraday-client.py -s \\\"$mod_faraday_server\\\" -p $mod_faraday_port -f createHostAndInterface -d \\\"\\\$3|\\\$2|\\\$4|$mod_faraday_severity\\\"";
+		//$line_add = "python /usr/share/BlackBulb/www/modules/faraday/includes/faraday-client.py";
 		
 		$exec = "sed -i '/$line_search/d' $script_path";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 
 		$exec = "echo '$line_add' >> $script_path";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
         
         // COPY LOG
         if ( 0 < filesize( $mod_logs ) ) {
             $exec = "$bin_cp $mod_logs $mod_logs_history/".gmdate("Ymd-H-i-s").".log";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
             
             $exec = "$bin_echo '' > $mod_logs";
-            exec_fruitywifi($exec);
+            exec_blackbulb($exec);
         }
     
     
@@ -84,7 +84,7 @@ if($service == "faraday") {
         $line_search = "faraday-client.py";
 		
 		$exec = "sed -i '/$line_search/d' $script_path";
-		exec_fruitywifi($exec);
+		exec_blackbulb($exec);
 
     }
 
@@ -93,10 +93,10 @@ if($service == "faraday") {
 if ($install == "install_autostart") {
 
     $exec = "chmod 755 install.sh";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     $exec = "$bin_sudo ./install.sh > $log_path/install.txt &";
-    exec_fruitywifi($exec);
+    exec_blackbulb($exec);
 
     header('Location: ../../install.php?module=autostart');
     exit;

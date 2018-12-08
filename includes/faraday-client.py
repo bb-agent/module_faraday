@@ -81,7 +81,7 @@ def save_json(v_ip, v_macaddress, v_name, v_severity, v_vuln):
         "severity": v_severity
     }
     
-    f = open('/usr/share/fruitywifi/logs/faraday.log', 'a+')
+    f = open('/usr/share/blackbulb/logs/faraday.log', 'a+')
     f.write(json.dumps(LOG)+"\n")
     f.close()
     
@@ -90,7 +90,7 @@ def save_log(v_ip, v_macaddress, v_name, v_severity, v_vuln):
     log_datetime = datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S')
     LOG = "%s %s %s %s %s %s " % (log_datetime, v_ip, v_macaddress, v_name, v_severity, v_vuln)
 
-    f = open("/usr/share/fruitywifi/logs/faraday.log", 'a+')
+    f = open("/usr/share/blackbulb/logs/faraday.log", 'a+')
     f.write(LOG + "\n")
     f.close()
 
@@ -132,7 +132,7 @@ def createHostAndInterface(api, data):
                 h_id,
                 "FruityWiFi",
                 desc,
-                "http://www.fruitywifi.com/",
+                "http://www.blackbulb.com/",
                 SEVERITY,
                 ""
                 )
@@ -157,7 +157,7 @@ def createAndAddVulnToHost(api, data):
                 h_id,
                 NAME,
                 desc,
-                "http://www.fruitywifi.com/",
+                "http://www.blackbulb.com/",
                 "1",
                 "x"
                 )
